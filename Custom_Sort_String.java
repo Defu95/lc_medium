@@ -32,11 +32,14 @@ public class Custom_Sort_String{
         		count++;
         	}
         }
-        String res="";
+        // String res="";
+        StringBuffer sb=new StringBuffer();
         for(int j=0;j<dst.length;j++){
-        	String s = String.valueOf(dst[j]);
-        	res+=s;
+        	// String s = String.valueOf(dst[j]);
+        	// res+=s;
+        	sb.append(dst[j]);
         }        
-        return res;
+        // return res;
+        return sb.toString();
     }
 }
