@@ -5,6 +5,7 @@ public class Compare_Version_Numbers{
 		// String v2="7.5.3.1";
 		String v1="1.0.1";
 		String v2="1";
+		
 		System.out.println(compareVersion(v1,v2));
 	}
     public static int compareVersion(String version1, String version2) {
