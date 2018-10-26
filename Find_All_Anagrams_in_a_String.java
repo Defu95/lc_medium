@@ -23,12 +23,15 @@ public class Find_All_Anagrams_in_a_String{
 					tmp[s.charAt(j)-'a']++;
 				}
 			}
-			int flag=1;
+			int flag=1, count=0;
 			for(int k=0;k<26;k++){
 				if(map[k]!=tmp[k]){
 					flag=-1;
 					break;
-				}
+				} else if(map[k]==tmp[k]&&map[k]>0)
+					count++;
+				if(count==p.length())
+					break;
 			}
 			if(flag==1)
 				res.add(i);
