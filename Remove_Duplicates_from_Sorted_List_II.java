@@ -42,7 +42,7 @@ public class Remove_Duplicates_from_Sorted_List_II{
         		tmp.next=p;
         	}else{
         		tmp.next=p;
-        		tmp=p;
+        		tmp=tmp.next;
         		p=p.next;
         	}
         }
