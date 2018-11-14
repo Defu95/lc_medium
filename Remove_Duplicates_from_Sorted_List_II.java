@@ -32,7 +32,6 @@ public class Remove_Duplicates_from_Sorted_List_II{
     	if(head==null||head.next==null)
     		return head;
         ListNode tmp=new ListNode(-1);
-        tmp.next=null;
         ListNode p=head,cur=tmp;
         while(p!=null){
         	if(p.next!=null&&p.val==p.next.val){ //
