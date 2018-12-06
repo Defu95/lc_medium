@@ -1,3 +1,4 @@
+//use recursive method
 import java.util.ArrayList;
 import java.util.Iterator;
 public class StringArrage {
