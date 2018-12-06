@@ -3,7 +3,7 @@ public class Battleships_in_a_Board{
 		char[][] board={{'X','.','.','X'},
 						{'.','.','.','X'},
 						{'.','.','.','X'}};
-		System.out.println(countBattleships(board));
+		System.out.print(countBattleships(board));
 	}
 	public static int countBattleships(char[][] board) {
 		if(board.length<=0||board[0].length<=0)
