@@ -5,8 +5,7 @@ public class FindNumsAppearOnce{
 		int[] num1=new int[1];
 		int[] num2=new int[1];
 		findnumsappearonce(array,num1,num2);
-		System.out.println(num1[0]);
-		System.out.println(num2[0]);
+		System.out.println(num1[0]+" "+num2[0]);
 	}
 
 	public static void findnumsappearonce(int [] array,int num1[] , int num2[]){
