@@ -22,27 +22,7 @@ public class Maximum_Depth_of_Binary_Tree{
     public static int maxDepth(TreeNode root) {
         if(root==null)
         	return 0;
-      	int count=0;
-        count=countd(root,count);
-        return count;
+        return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
     }	
 
-    public static int countd(TreeNode root,int count){
-    	if(root.left==null&&root.right==null){
-    		System.out.print(root.val+" ");
-    		System.out.println(count);
-    		return count;	
-    	}
-    	if(root.left!=null){
-    		count++;
-    		System.out.println("!"+count);
-    		return countd(root.left,count);
-    	}
-    	if(root.right!=null){
-    		count++;
-    		System.out.println("!!"+count);
-    		return countd(root.right,count);
-    	}
-    	return count;
-    }
 }
