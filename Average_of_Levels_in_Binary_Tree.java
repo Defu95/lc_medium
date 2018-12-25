@@ -27,15 +27,23 @@ public class Average_of_Levels_in_Binary_Tree{
 
     public static List<Double> averageOfLevels(TreeNode root) {
     	List<Double> res=new ArrayList<>();
-    	Queue<TreeNode> queue=new Queue<>();
+    	Queue<TreeNode> queue=new LinkedList<>();
     	if(root==null)
     		return res;
-    	queue.off(root);
+    	queue.offer(root);
     	while(!queue.isEmpty()){
-    		
+    		int sum=0;
+    		int num=queue.size();
+    		for(int i=0;i<num;i++){
+    			TreeNode tmp=queue.poll();
+    			sum+=tmp.val;
+    			if(tmp.left!=null)
+	    			queue.offer(tmp.left);
+	    		if(tmp.right!=null)
+	    			queue.offer(tmp.right);	    		
+    		}
+    		res.add((double)sum/num);
     	}
-    	res.add(2.0);
-    	res.add(3.0);
     	return res;        
     }
 }
