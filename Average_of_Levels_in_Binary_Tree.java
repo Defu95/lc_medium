@@ -32,7 +32,7 @@ public class Average_of_Levels_in_Binary_Tree{
     		return res;
     	queue.offer(root);
     	while(!queue.isEmpty()){
-    		int sum=0;
+    		double sum=0;
     		int num=queue.size();
     		for(int i=0;i<num;i++){
     			TreeNode tmp=queue.poll();
