@@ -36,14 +36,13 @@ public class Symmetric_Tree{
         while(!queue.isEmpty()){
         	int flag=-1;
         	int num=queue.size();
-        	if(reverse(list)==false)
+        	if(!reverse(list))
         		return false;
         	list.clear();
         	for(int i=0;i<num;i++){
         		TreeNode tmpnode1=queue.poll();
-        		if(tmpnode1==null){
+        		if(tmpnode1==null)
         			list.add("*");
-        		}
         		else{
 	        		if(tmpnode1.left!=null){
 	        			flag=1;
@@ -63,22 +62,19 @@ public class Symmetric_Tree{
 	        		}
         		}
         	}
-        	if(flag==-1){
+        	if(flag==-1)
         		break;
-        	}
         }
         return reverse(list);
     }
 
     public static boolean reverse(List list){
     	int num=list.size()-1;
-    	if(num==1){
+    	if(num==1)
     		return list.get(0).equals(list.get(1));
-    	}
     	for(int i=0;i<num;i++,num--){
-    		if(!list.get(i).equals(list.get(num))){
+    		if(!list.get(i).equals(list.get(num)))
     			return false;
-    		}
     	}
     	return true;
     }
