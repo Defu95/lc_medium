@@ -19,20 +19,27 @@ public class Construct_String_form_Binary_Tree {
 
     public static String tree2str(TreeNode t) {
         if(t==null)
-        	return "";
-        int flag=-1;
-        String tmp="";
+            return "";
+        StringBuffer sb=new StringBuffer();
+        t2s(t,sb);
+        return sb.toString();
+    }
+
+    public static void t2s(TreeNode t,StringBuffer sb){
+        sb.append(t.val);
+        if(t.left==null&&t.right==null)
+            return;
         if(t.left!=null){
-        	flag=1;
-        	tmp= "%s(%s)"%(String.valueOf(t.val),String.valueOf(t.left.val));
+            sb.append("(");
+            t2s(t.left,sb);
+            sb.append(")");
         }
         if(t.right!=null){
-        	if(flag==1)
-        		tmp+="(%s)"%(String.valueOf(t.right.val));
-        	else
-        		tmp="%s(%s)"%(String.valueOf(t.val),String.valueOf(t.right.val));
+            if(t.left==null)
+                sb.append("()");
+            sb.append("(");
+            t2s(t.right,sb); 
+            sb.append(")");
         }
-        return tmp;
-        String
     }
 }
