@@ -1,10 +1,10 @@
 public class Construct_String_form_Binary_Tree {
-	static class TreeNode {
-	    int val;
-	    TreeNode left;
-	    TreeNode right;
-	    TreeNode(int x) { val = x; }
-	}
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
+    }
 
 	public static void main(String[] args) {
 		TreeNode t1=new TreeNode(1);
@@ -14,6 +14,11 @@ public class Construct_String_form_Binary_Tree {
 		t2.left=t4;
 		t1.left=t2;
 		t1.right=t3;
+          //      1
+          //    /   \
+          //   2     3
+          //  /    
+          // 4     
 		System.out.println(tree2str(t1));
 	}
 
