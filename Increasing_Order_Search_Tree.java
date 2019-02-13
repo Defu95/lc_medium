@@ -1,3 +1,4 @@
+import java.util.*;
 public class Increasing_Order_Search_Tree{
 	static class TreeNode {
 	    int val;
@@ -39,14 +40,42 @@ public class Increasing_Order_Search_Tree{
 		if(root==null)
 			return "";
 		StringBuffer sb=new StringBuffer();
-
+		t2s(root,sb);
+		return sb.toString();
 	}
 
 	public static void t2s(TreeNode root,StringBuffer sb){
 		sb.append(root.val);
+		if(root.left!=null){
+			sb.append("(");
+			t2s(root.left,sb);
+			sb.append(")");
+		}
+		if(root.right!=null){
+			if(root.left==null)
+				sb.append("()");
+			sb.append("(");
+			t2s(root.right,sb);
+			sb.append(")");
+		}
 	}
 
     public static TreeNode increasingBST(TreeNode root) {
-        
+    	TreeNode pre=new TreeNode(-1);
+    	TreeNode res=pre;
+    	Stack<TreeNode> stack=new Stack<>();
+    	while(true){
+    		while(root!=null){
+    			stack.push(root);
+    			root=root.left;
+    		}
+    		if(stack.isEmpty())
+    			return res.right;
+    		TreeNode cur=stack.pop();
+    		pre.right=cur;
+    		pre=pre.right;
+    		pre.left=null;
+    		root=cur.right;
+    	}
     }
 }
