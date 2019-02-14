@@ -60,22 +60,22 @@ public class Increasing_Order_Search_Tree{
 		}
 	}
 
-    public static TreeNode increasingBST(TreeNode root) {
-    	TreeNode pre=new TreeNode(-1);
-    	TreeNode res=pre;
-    	Stack<TreeNode> stack=new Stack<>();
-    	while(true){
-    		while(root!=null){
-    			stack.push(root);
-    			root=root.left;
-    		}
-    		if(stack.isEmpty())
-    			return res.right;
-    		TreeNode cur=stack.pop();
-    		pre.right=cur;
-    		pre=pre.right;
-    		pre.left=null;
-    		root=cur.right;
-    	}
+	public static TreeNode increasingBST(TreeNode root) {
+		TreeNode pre=new TreeNode(-1);
+		TreeNode res=pre;
+		Stack<TreeNode> stack=new Stack<>();
+		while(true){
+			while(root!=null){
+				stack.push(root);
+				root=root.left;
+			}
+			if(stack.isEmpty())
+				return res.right;
+			TreeNode cur=stack.pop();
+			pre.right=cur;
+			pre=pre.right;
+			pre.left=null;
+			root=cur.right;
+		}
     }
 }
