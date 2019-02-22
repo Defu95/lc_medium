@@ -25,8 +25,28 @@ public class Second_Minimum_Node_In_a_Binary_Tree{
 	}
 
     public static int findSecondMinimumValue(TreeNode root) {
-        
+    	if(root==null)
+    		return -1;
+        int firstmin=Integer.MAX_VALUE,secondmin=Integer.MAX_VALUE;
+        secondmin=findsubtree(root,firstmin,secondmin);
+        return secondmin==Integer.MAX_VALUE?-1:secondmin;
     }
 
-
+    public static int findsubtree(TreeNode root,int firstmin,int secondmin){
+    	if(root==null)
+    		return secondmin;
+    	int tmp=root.val;
+    	if(tmp<firstmin){
+    		secondmin=firstmin;
+    		firstmin=tmp;
+    	}else if(firstmin<tmp&&secondmin>tmp)
+    		secondmin=tmp;
+    	int leftmin=findsubtree(root.left,firstmin,secondmin);
+    	int rightdmin=findsubtree(root.right,firstmin,secondmin);
+    	System.out.printf("left:%d right:%d",leftmin,rightdmin);
+    	System.out.println();
+    	// return Math.min(leftmin,rightdmin);
+    	// return secondmin;
+    	return rightdmin;
+    }
 }
