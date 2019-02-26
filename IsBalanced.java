@@ -24,36 +24,19 @@ public class IsBalanced{
 
 	public static boolean isbalanced_solution(TreeNode root){
 		if(root==null)
-			return false;
-		Queue<TreeNode> queue=new LinkedList<>();
-		queue.offer(root);
-		int flag=-1;
-		while(!queue.isEmpty()){
-			int num=queue.size();
-			for(int i=0;i<num;i++){
-				TreeNode tmp=queue.poll();
-				if(tmp.left!=null)
-					queue.offer(tmp.left);
-				else {
-					flag=1;
-				}
-				if(tmp.right!=null)
-					queue.offer(tmp.right);
-				else {
-					flag=1;
-				}
-			}
-			if(flag==1)
-				break;
-		}
-		if(queue.isEmpty())
 			return true;
-		int num=queue.size();
-		for(int i=0;i<num;i++){
-			TreeNode tmp=queue.poll();
-			if(tmp.left!=null||tmp.right!=null)
-				return false;
-		}
-		return true;
+		int leftdep=treedep(root.left);
+		int rightdep=treedep(root.right);
+		if(Math.abs(leftdep-rightdep)>1)
+			return false;
+		return isbalanced_solution(root.left) && isbalanced_solution(root.right);
+	}
+
+	public static int treedep(TreeNode root){
+		if(root==null)
+			return 0;
+		int leftdep=treedep(root.left);
+		int rightdep=treedep(root.right);
+		return leftdep>rightdep?leftdep+1:rightdep+1;
 	}
 }
