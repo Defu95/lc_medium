@@ -1,3 +1,4 @@
+import java.util.*;
 public class Second_Minimum_Node_In_a_Binary_Tree{
 	static class TreeNode {
 	    int val;
@@ -42,11 +43,29 @@ public class Second_Minimum_Node_In_a_Binary_Tree{
     	}else if(firstmin<tmp&&secondmin>tmp)
     		secondmin=tmp;
     	int leftmin=findsubtree(root.left,firstmin,secondmin);
-    	int rightdmin=findsubtree(root.right,firstmin,secondmin);
-    	System.out.printf("left:%d right:%d",leftmin,rightdmin);
-    	System.out.println();
-    	// return Math.min(leftmin,rightdmin);
-    	// return secondmin;
-    	return rightdmin;
+    	int rightmin=findsubtree(root.right,firstmin,secondmin);
+    	return Math.min(leftmin,rightmin);
+    }
+
+    public static int findsecondmin(TreeNode root){
+    	if(root==null)
+    		return -1;
+    	int fmin=Integer.MAX_VALUE,smin=Integer.MAX_VALUE;
+    	Queue<TreeNode> queue=new LinkedList<>();
+    	queue.offer(root);
+    	while(!queue.isEmpty()){
+    		TreeNode tmp=queue.poll();
+    		if(fmin>tmp.val){
+    			smin=fmin;
+    			fmin=tmp.val;
+    		}else if(fmin<tmp.val&&tmp.val<smin){
+    			smin=tmp.val;
+    		}
+    		if(tmp.left!=null)
+    			queue.offer(tmp.left);
+    		if(tmp.right!=null)
+    			queue.offer(tmp.right);
+    	}
+    	return smin==Integer.MAX_VALUE?-1:smin;
     }
 }
