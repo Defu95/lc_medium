@@ -1,4 +1,3 @@
-import PrintfromTop2Bottom.PrintFromTopToBottom;
 import java.util.*;
 public class MirrorTree {
 	static class TreeNode{
@@ -13,11 +12,11 @@ public class MirrorTree {
 	public static void main(String[] args) {
 		TreeNode t11=new TreeNode(1);
 		TreeNode t21=new TreeNode(2);
-		TreeNode t22=new TreeNode(2);
-		TreeNode t31=new TreeNode(3);
-        TreeNode t32=new TreeNode(3);
-        TreeNode t41=new TreeNode(4);
-        TreeNode t42=new TreeNode(4);
+		TreeNode t22=new TreeNode(3);
+		TreeNode t31=new TreeNode(4);
+        TreeNode t32=new TreeNode(5);
+        TreeNode t41=new TreeNode(6);
+        TreeNode t42=new TreeNode(7);
         // TreeNode t51=new TreeNode(5);
         // TreeNode t52=new TreeNode(5);
         // TreeNode t61=new TreeNode(6);
@@ -28,16 +27,24 @@ public class MirrorTree {
         t22.right=t32;
         t11.left=t21;
         t11.right=t22;
-        ArrayList<Integer> res=PrintFromTopToBottom(t11);
-        for(int num:res)
-        	System.out.print(num+" ");
-        // Mirror(t11);        
+        Mirror(t11);        
 	}
 	
     public static void Mirror(TreeNode root) {
-        if(root==null)
-        	return;
-        if(root.left!=null||root.right!=null)
-        	return;
+	    if(root==null)
+	    	return;
+	    mirror(root,root.left,root.right);
+	}
+
+	public static void mirror(TreeNode root,TreeNode lroot,TreeNode rroot){
+		if(lroot==null && rroot==null)
+			return;
+		else {
+			TreeNode tmp=lroot;
+			root.left=rroot;
+			root.right=tmp;
+		}
+		Mirror(lroot);
+		Mirror(rroot);
     }
 }
