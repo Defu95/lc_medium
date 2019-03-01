@@ -35,10 +35,10 @@ public class nowcoder_IsNumeric{
     public static boolean isnum(char[] str){
         if(str==null || (!Character.isDigit(str[0])&str[0]!='.'))
             return false;
-        boolean hasE=false, decimal=false, sign=false;
+        boolean hasE=false, decimal=false, sign=false,hasnum=false;
         for(int i=0;i<str.length;i++){
             if(str[i]=='e' || str[i]=='E'){
-                if(i==str.length-1 || hasE)
+                if(i==str.length-1 || hasE || !hasnum)
                     return false;
                 hasE=true;   
             }else if(str[i]=='+' || str[i]=='-'){
@@ -48,12 +48,14 @@ public class nowcoder_IsNumeric{
                     return false;
                 sign=true;
             }else if(str[i]=='.'){
-                if(i==str.length-1 ||hasE || decimal)
+                if(hasE || decimal)
                     return false;
-                decimal=true;
+                   decimal=true;
             }else if(str[i]<'0' || str[i]>'9')
                 return false;
+            else
+                hasnum=true;
         }
-        return true;
+        return hasnum?true:false;
     }
 }
