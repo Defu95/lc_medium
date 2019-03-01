@@ -34,11 +34,10 @@ public class nowcoder_ReverseList{
     	while(head!=null){
     		cur=head.next;
     		tmp=head;
-    		tmp.next=null;
     		tmp.next=res;
-
+    		res=tmp;
     		head=cur; 
     	}
-    	return tmp;
+    	return res;
     }
 }
