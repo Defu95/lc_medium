@@ -1,6 +1,6 @@
 public class nowcoder_StrToInt{
     public static void main(String[] args) {
-    	String s1="+21447";
+    	String s1="-24";
     	String s2="-2147483649";
 
     	System.out.println(StrToInt(s1));
