@@ -49,7 +49,6 @@ public class nowcoder_Print_Z {
     					queue.offer(node.right);
     			}
     			res.add(tmp);
-    			System.out.println("size: "+tmp.size());
     		}else{
     			flag=-1;
     			Stack<TreeNode> stack=new Stack<>();
