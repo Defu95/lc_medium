@@ -28,21 +28,7 @@ public class nowcoder_GetLeastNumbers_Solution {
         return res;
     }
 
-    public static int partition(int[] input,int begin,int end){
-    	int p=(begin+end)/2;
-    	while(begin<end){
-    		while(begin<end && input[begin]<input[p])
-    			begin++;
-			swap(input,begin,p);
-    		while(begin<end && input[p]<input[end])
-    			end--;
-			swap(input,p,end);
-    	}
-    	return begin;
-    }
-
-
-    public static int partition1(int[] input, int begin, int end){
+    public static int partition(int[] input, int begin, int end){
         int p=(begin+end)/2;
         int small=begin-1;
         swap(input,p,end);
