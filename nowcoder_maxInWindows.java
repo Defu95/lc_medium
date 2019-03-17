@@ -9,11 +9,11 @@ public class nowcoder_maxInWindows {
 	}
 
     public static ArrayList<Integer> maxInWindows(int [] num, int size) {
-        ArrayList<Integer> res=new ArrayList<>();
-        if(num.length==0 || size==0 || num.length<size)
-        	return res;
-        int flag=0;
-        Deque<Integer> deque=new ArrayDeque<>();
-        
+		ArrayList<Integer> res=new ArrayList<>();
+		if(num.length==0 || size==0 || num.length<size)
+			return res;
+		int flag=0;
+		Deque<Integer> deque=new ArrayDeque<>();
+			
     }
 }
