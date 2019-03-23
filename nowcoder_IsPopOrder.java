@@ -18,11 +18,17 @@ public class nowcoder_IsPopOrder {
 	    			if(stack.peek()==popA[p]){
 	    				stack.pop();
 	    				p++;
-	    			}
+	    			}else
+	    				stack.push(num);
 	    		}
 	    	}else{
 	    		p++;
 	    	}
     	}
+    	while(!stack.isEmpty() && stack.peek()==popA[p]){
+    		p++;
+    		stack.pop();
+    	}
+    	return p==popA.length;
     }
 }
