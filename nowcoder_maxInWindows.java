@@ -14,6 +14,6 @@ public class nowcoder_maxInWindows {
 			return res;
 		int flag=0;
 		Deque<Integer> deque=new ArrayDeque<>();
-			
+		
     }
 }

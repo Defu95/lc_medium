@@ -7,4 +7,17 @@ public class nowcoder_VerifySequenceOfBST {
     public static boolean VerifySquenceOfBST(int [] sequence) {
         
     }
+
+    public static boolean isaBST(int[] sequence,int flag){
+    	int p=sequence[flag];
+    	int i=0;
+    	for(;i<flag;i++)
+    		if(sequence[i]>=p)
+    			break;
+    	for(;i<flag;i++){
+    		if(sequence[i]<p)
+    			return false;
+    	}
+    	return true;
+    }
 }
